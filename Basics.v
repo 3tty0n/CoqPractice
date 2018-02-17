@@ -41,6 +41,13 @@ Definition orb (b1 : bool) (b2 : bool) :=
   | false => b2
   end.
 
+Fixpoint evenb (n:nat) : bool :=
+  match n with
+  | O        => true
+  | S O      => false
+  | S (S n') => evenb n'
+  end.
+
 Eval simpl in (next_weekday (next_weekday saturday)).
 
 Example test_orb1: (orb true false) = true.
